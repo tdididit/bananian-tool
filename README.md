@@ -1,2 +1,2 @@
-bananian-config-tool
-====================
+bananian-config
+===============
