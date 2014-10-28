@@ -42,9 +42,9 @@ subproc() {
 #
 calc_wt_size
 while true; do
-  FUN=$(whiptail --title "title" --menu "menu name" $WT_HEIGHT $WT_WIDTH $WT_MENU_HEIGHT --cancel-button Finish --ok-button Select \
-    "1 " " " \
-    "2 " " "\
+  FUN=$(whiptail --title "Bananian Tool" --menu "Choose Option" $WT_HEIGHT $WT_WIDTH $WT_MENU_HEIGHT --cancel-button Finish --ok-button Select \
+    "1 " "Bananian Config" \
+    "2 " "Bananian Installer "\
     "3 " " "\
     "4 " " "\
     3>&1 1>&2 2>&3)
