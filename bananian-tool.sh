@@ -22,6 +22,17 @@ calc_wt_size() {
   WT_MENU_HEIGHT=$(($WT_HEIGHT-8))
 }
 
+do_finish() {
+  if [ $REBOOT -eq 1 ]; then
+    whiptail --yesno "Would you like to reboot now?" 20 60 2
+    if [ $? -eq 0 ]; then # yes
+      sync
+      reboot
+    fi
+  fi
+  exit 0
+}
+
 subproc() {
   exit 1
 }
@@ -32,10 +43,10 @@ subproc() {
 calc_wt_size
 while true; do
   FUN=$(whiptail --title "title" --menu "menu name" $WT_HEIGHT $WT_WIDTH $WT_MENU_HEIGHT --cancel-button Finish --ok-button Select \
-    "1 " \
-    "2 " \
-    "3 " \
-    "4 " \
+    "1 " " " \
+    "2 " " "\
+    "3 " " "\
+    "4 " " "\
     3>&1 1>&2 2>&3)
   RET=$?
   if [ $RET -eq 1 ]; then
